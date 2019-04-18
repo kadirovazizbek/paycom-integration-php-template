@@ -174,7 +174,7 @@ class Application
 
             // create new transaction
             // keep create_time as timestamp, it is necessary in response
-            $create_time                        = Format::timestamp();
+            $create_time                        = Format::timestamp(true);
             $transaction->paycom_transaction_id = $this->request->params['id'];
             $transaction->paycom_time           = $this->request->params['time'];
             $transaction->paycom_time_datetime  = Format::timestamp2datetime($this->request->params['time']);
@@ -221,7 +221,7 @@ class Application
                     $order->changeState(Order::STATE_PAY_ACCEPTED);
 
                     // todo: Mark transaction as completed
-                    $perform_time        = Format::timestamp();
+                    $perform_time        = Format::timestamp(true);
                     $found->state        = Transaction::STATE_COMPLETED;
                     $found->perform_time = Format::timestamp2datetime($perform_time);
                     $found->save();

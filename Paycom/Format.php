@@ -32,7 +32,7 @@ class Format
     public static function timestamp($milliseconds = false)
     {
         if ($milliseconds) {
-            return round(microtime(true) * 1000); // milliseconds
+            return round(microtime(true)) * 1000; // milliseconds
         }
 
         return time(); // seconds
@@ -87,12 +87,12 @@ class Format
     /**
      * Converts date time string to timestamp value.
      * @param string $datetime date time string.
-     * @return int timestamp as seconds.
+     * @return int timestamp as milliseconds.
      */
     public static function datetime2timestamp($datetime)
     {
         if ($datetime) {
-            return strtotime($datetime);
+            return 1000 * strtotime($datetime);
         }
 
         return $datetime;
