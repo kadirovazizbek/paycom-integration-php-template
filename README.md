@@ -1,6 +1,6 @@
 # Paycom integration template
 
-This is not a complete implementation of the Marchant API, instead a basic template.
+This is not a complete implementation of the Merchant API, instead a basic template.
 One **MUST** implement all the `todo:` entries found in the source files according his/her own requirements.
 
 ## Table of Content
