@@ -94,6 +94,9 @@ class Format
         if ($datetime) {
             return 1000 * strtotime($datetime);
         }
+        if (is_null($datetime)) {
+            return 0;
+        }
 
         return $datetime;
     }
