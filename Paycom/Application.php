@@ -284,7 +284,7 @@ class Application
 
                 // change order state to cancelled
                 $order = new Order($this->request->id);
-                $order->find($this->request->params);
+                $order->find(['order_id' => $found->order_id]);
                 $order->changeState(Order::STATE_CANCELLED);
 
                 // send response
@@ -298,7 +298,7 @@ class Application
             case Transaction::STATE_COMPLETED:
                 // find order and check, whether cancelling is possible this order
                 $order = new Order($this->request->id);
-                $order->find($this->request->params);
+                $order->find(['order_id' => $found->order_id]);
                 if ($order->allowCancel()) {
                     // cancel and change state to cancelled
                     $found->cancel(1 * $this->request->params['reason']);
